@@ -21,6 +21,7 @@ public class Solution {
         TreeNode rightTree = new TreeNode(3);
         rightTree.left = rightTree4;
         rightTree.right = rightTree5;
+        root.right = rightTree;
 
         Solution a = new Solution();
         System.out.println(a.maxDepth(root));
@@ -31,6 +32,7 @@ public class Solution {
      * @param root: The root of binary tree.
      * @return: An integer.
      */
+/*
 
     private int depth;
 
@@ -52,6 +54,16 @@ public class Solution {
         helper(root.left,curDepth+1);
         helper(root.right,curDepth+1);
     }
+*/
 
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        return Math.max(left, right) + 1;
+    }
 
 }
